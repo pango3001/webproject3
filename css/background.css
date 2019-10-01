@@ -1,0 +1,7 @@
+/* background.css */
+body {
+    background-image: url("../img/echoarena_render_map_blue_01.webp");
+    background-size: 2400px;
+    background-repeat: round repeat;
+
+}
