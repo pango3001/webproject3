@@ -110,10 +110,16 @@ div.animation{
         width: 100%;
         height: auto;
     }
+    div.w3-half, div.w3-container {
+
+        width: 100%;
+        height: auto;
+        text-align: center;
+    }
 }
 @media (max-width: 900px){
 
-    w3-half {
+    div.w3-half, div.w3-container {
         width: 100%;
         text-align: center;
     }
