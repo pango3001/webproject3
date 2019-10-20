@@ -289,6 +289,20 @@ function validGN(){
     }
 }
 
+function validBD(){
+    var birth = document.getElementById('birth_day').value;
+    if(birth == ""){
+        document.getElementById('birth_day').style.borderColor = "red";
+        document.getElementById('BDerror').innerText="Birth date is required.";
+        document.getElementById('BDerror').style.color = "red";
+    }
+    else{
+        document.getElementById('birth_day').style.borderColor = "green";
+        document.getElementById('BDerror').innerText="Valid input";
+        document.getElementById('BDerror').style.color = "green";
+    }
+}
+
 function isZip(zip){
     return /^\d{5}-\d{4}$/.test(zip);
 }
