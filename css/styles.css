@@ -69,6 +69,12 @@ footer {
     color: white;
 }
 
+.err {
+    color: red;
+    border-style: none;
+    border-color: red;
+}
+
 img {
     max-width: 100%;
     height: auto;
