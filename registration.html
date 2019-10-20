@@ -126,40 +126,41 @@
                         <option value="WI">Wisconsin</option>
                         <option value="WY">Wyoming</option>
                     </select>
+                    <br><em id="STerror" class="err">&nbsp</em>
                 </div>
                 <div class="w3-container w3-half">
                     <label for="city"><b>City</b></label><br>
                     <input id="city" type="text" placeholder="Saint Louis" name="city" required>
-
+                    <br><em id="CTerror" class="err">&nbsp</em>
                 </div>
                 <div class="w3-container w3-half">
                     <label for="zipcode"><b>Zip Code</b></label><br>
                     <input id="zipcode" type="text" placeholder="63303" name="zip_code" required>
-
+                    <br><em id="ZPerror" class="err">&nbsp</em>
                 </div>
                 <div class="w3-container w3-half">
                     <label for="phonenumber"><b>Phone Number</b></label><br>
                     <input id="phonenumber" type="text" placeholder="(314) 555-1234" name="phone_number" required>
-
+                    <br><em id="PNerror" class="err">&nbsp</em>
                 </div>
                 <div class="w3-container w3-half">
                     <b>Gender</b><br>
                     <input type="radio" name="gender" id="maleGender" value="male" checked/> <label for="maleGender">Male</label><br/>
                     <input type="radio" name="gender" id="femaleGender" value="female"/> <label for="femaleGender">Female</label><br/>
                     <input type="radio" name="gender" id="otherGender" value="other"/> <label for="otherGender">Other</label>
-
+                    <br><em id="GNerror" class="err">&nbsp</em>
                 </div>
                 <div class="w3-container w3-half">
                 <b>Marital Status</b><br>
-                    <input type="radio" name="marital_status" id="single" value="single" checked/> <label for="single">Single</label><br/>
+                    <input type="radio" name="marital_status" id="single" value="single" /> <label for="single">Single</label><br/>
                     <input type="radio" name="marital_status" id="married" value="married"/> <label for="married">Married</label><br/>
                     <input type="radio" name="marital_status" id="divorced" value="divorced"/> <label for="divorced">Divorced</label>
-
+                    <br><em id="MSerror" class="err">&nbsp</em>
                 </div>
                 <div class="w3-container w3-half">
                     <label for="birth_day"><b>Date of Birth</b></label><br>
                     <input id="birth_day" type="date" name="birth_day"/>
-
+                    <br><em id="BDerror" class="err">&nbsp</em>
                 </div>
                 <div class="w3-container w3-half"><br>
                     <input type="submit" value="Submit">
