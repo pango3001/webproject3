@@ -40,6 +40,11 @@ function validEM() {
         document.getElementById('EMerror').innerText="Email is required.";
         document.getElementById('EMerror').style.color = "red";
     }
+    else if(!(isEmail(email))){
+        document.getElementById('email').style.borderColor = "red";
+        document.getElementById('EMerror').innerText="Email must be in x@x.xyz format";
+        document.getElementById('EMerror').style.color = "red";
+    }
     else{
         document.getElementById('email').style.borderColor = "green";
         document.getElementById('EMerror').innerText="Valid input";
@@ -59,10 +64,10 @@ function validPW(){
         document.getElementById('PWerror').innerText="Password must be between 8 and 50 characters.";
         document.getElementById('PWerror').style.color = "red";
     }
- //   else if(regexPW(password)){
-    //    document.getElementById('password').style.borderColor = "red";
- //       document.getElementById('PWerror').innerText="Must have 1 capital, 1 lower, 1 digit, and 1 spec char.";
-//    }
+    else if(!(regexPW(password))){
+        document.getElementById('password').style.borderColor = "red";
+        document.getElementById('PWerror').innerText="Must have 1 capital, 1 lower, 1 digit, and 1 special char.";
+    }
     else{
         document.getElementById('password').style.borderColor = "green";
         document.getElementById('PWerror').innerText="Valid input";
@@ -73,7 +78,12 @@ function validPW(){
 function validRPW(){
     var password2 = document.getElementById('password_repeat').value;
     var password = document.getElementById('password').value;
-    if(password != password2){
+    if(password == ""){
+        document.getElementById('password_repeat').style.borderColor = "red";
+        document.getElementById('RPWerror').innerText="Please retype password.";
+        document.getElementById('RPwerror').style.color = "red";
+    }
+    else if(password != password2){
         document.getElementById('password_repeat').style.borderColor = "red";
         document.getElementById('RPWerror').innerText="Passwords must match.";
         document.getElementById('RPWerror').style.color = "red";
@@ -83,10 +93,10 @@ function validRPW(){
         document.getElementById('RPWerror').innerText="Password must be between 8 and 50 characters.";
         document.getElementById('RPWerror').style.color = "red";
     }
-    //   else if(regexPW(password)){
-    //    document.getElementById('password').style.borderColor = "red";
-    //       document.getElementById('PWerror').innerText="Must have 1 capital, 1 lower, 1 digit, and 1 spec char.";
-//    }
+    else if(!(regexPW(password2))){
+        document.getElementById('password_repeat').style.borderColor = "red";
+        document.getElementById('RPWerror').innerText="Must have 1 capital, 1 lower, 1 digit, and 1 special char.";
+    }
     else{
         document.getElementById('password_repeat').style.borderColor = "green";
         document.getElementById('RPWerror').innerText="Valid input";
@@ -181,10 +191,12 @@ function validCT(){
     if(city == ""){
         document.getElementById('city').style.borderColor = "red";
         document.getElementById('CTerror').innerText="City is required.";
+        document.getElementById('CTerror').style.color = "red";
     }
     else if(city.length > 50){
         document.getElementById('city').style.borderColor = "red";
         document.getElementById('CTerror').innerText="City cannot exceed 50 characters.";
+        document.getElementById('CTerror').style.color = "red";
     }
     else{
         document.getElementById('city').style.borderColor = "green";
@@ -192,12 +204,70 @@ function validCT(){
         document.getElementById('CTerror').style.color = "green";
     }
 }
-/*
-function regexPW(password) {
-    var regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s)$/;
-    if(password.test(regex)){   // this ish dont work
-        return true;
-    }else
-        return false;
+
+function validZP(){
+    var zip = document.getElementById('zipcode').value;
+    if(zip == ""){
+        document.getElementById('zipcode').style.borderColor = "red";
+        document.getElementById('ZPerror').innerText="Zip code is required.";
+        document.getElementById('ZPerror').style.color = "red";
+    }
+    else if(!(zip.length == 5 || zip.length == 9)){
+        document.getElementById('zipcode').style.borderColor = "red";
+        document.getElementById('ZPerror').innerText="Zip code must be 5 or 9 digits";
+        document.getElementById('ZPerror').style.color = "red";
+    }
+    else{
+        document.getElementById('zipcode').style.borderColor = "green";
+        document.getElementById('ZPerror').innerText="Valid input";
+        document.getElementById('ZPerror').style.color = "green";
+    }
 }
-*/
+
+function validPN(){
+    var phone = document.getElementById('phonenumber').value;
+    if(phone.length == ""){
+        document.getElementById('phonenumber').style.borderColor = "red";
+        document.getElementById('PNerror').innerText="Phone number is required.";
+    }
+    else if(!(phone.length == 10)){
+        document.getElementById('phonenumber').style.borderColor = "red";
+        document.getElementById('PNerror').innerText="Phone number must be 10 digits.";
+    }
+    else if(!(isdigit(phone))){
+        document.getElementById('phonenumber').style.borderColor = "red";
+        document.getElementById('PNerror').innerText="Phone number must be numeric.";
+    }
+    else{
+        document.getElementById('phonenumber').style.borderColor = "green";
+        document.getElementById('PNerror').innerText="Valid input";
+        document.getElementById('PNerror').style.color = "green";
+    }
+}
+
+function validGN(){
+    var male = document.getElementById('maleGender').value;
+    var female = document.getElementById('femaleGender').value;
+    var other = document.getElementById('otherGender').value;
+
+    if(male || female || other){
+        document.getElementById('Gnerror').innerText="Valid input";
+        document.getElementById('GNerror').style.color = "green";
+    }
+    else{
+        document.getElementById('Gnerror').innerText="Valid input";
+        document.getElementById('GNerror').style.borderColor = "red";
+    }
+}
+
+function regexPW(password) {
+    return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s)$/.test(password);
+}
+
+function isEmail(test){
+    return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(test)
+}
+
+function isdigit(test) {
+    return /^\d+$/.test(test);
+}
