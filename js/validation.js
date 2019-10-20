@@ -69,6 +69,7 @@ function validPW(){
     else if(!(regexPW(password))){
         document.getElementById('password').style.borderColor = "red";
         document.getElementById('PWerror').innerText="Must have 1 capital, 1 lower, 1 digit, and 1 special char.";
+        document.getElementById('PWerror').style.color = "red";
     }
     else{
         document.getElementById('password').style.borderColor = "green";
@@ -130,10 +131,12 @@ function validLN(){
     if(lastname == ""){
         document.getElementById('lastname').style.borderColor = "red";
         document.getElementById('LNerror').innerText="Last name is required.";
+        document.getElementById('LNerror').style.color = "red";
     }
     else if(lastname.length > 50){
         document.getElementById('lastname').style.borderColor = "red";
         document.getElementById('LNerror').innerText="Last name cannot exceed 50 characters.";
+        document.getElementById('LNerror').style.color = "red";
     }
     else{
         document.getElementById('lastname').style.borderColor = "green";
@@ -147,10 +150,11 @@ function validAD(){
     if(address == ""){
         document.getElementById('address1').style.borderColor = "red";
         document.getElementById('ADerror').innerText="Address is required.";
+        document.getElementById('ADerror').style.color = "red";
     }
     else if(address.length > 100){
         document.getElementById('address1').style.borderColor = "red";
-        document.getElementById('ADerror').innerText="Last name cannot exceed 100 characters.";
+        document.getElementById('ADerror').innerText="Address cannot exceed 100 characters.";
         document.getElementById('ADerror').style.color = "red";
     }
     else{
