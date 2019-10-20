@@ -145,17 +145,17 @@
                 </div>
                 <div class="w3-container w3-half">
                     <b>Gender</b><br>
-                    <input type="radio" name="gender" id="maleGender" value="male"/> <label for="maleGender">Male</label><br/>
-                    <input type="radio" name="gender" id="femaleGender" value="female"/> <label for="femaleGender">Female</label><br/>
-                    <input type="radio" name="gender" id="otherGender" value="other"/> <label for="otherGender">Other</label>
-                    <br><em id="GNerror" class="err">&nbsp</em>
+                    <input type="radio" name="gender" id="maleGender" value="male" onchange="validGN()"/> <label for="maleGender">Male</label><br/>
+                    <input type="radio" name="gender" id="femaleGender" value="female" onchange="validGN()"/> <label for="femaleGender">Female</label><br/>
+                    <input type="radio" name="gender" id="otherGender" value="other" onchange="validGN()"/> <label for="otherGender">Other</label>
+                    <br><em id="GNerror" class="err" >&nbsp</em>
                 </div>
                 <div class="w3-container w3-half">
                 <b>Marital Status</b><br>
                     <input type="radio" name="marital_status" id="single" value="single" /> <label for="single">Single</label><br/>
                     <input type="radio" name="marital_status" id="married" value="married"/> <label for="married">Married</label><br/>
                     <input type="radio" name="marital_status" id="divorced" value="divorced"/> <label for="divorced">Divorced</label>
-                    <br><em id="MSerror" class="err" onsubmit="validGM()">&nbsp</em>
+                    <br><em id="MSerror" class="err" onblur="validMS()">&nbsp</em>
                 </div>
                 <div class="w3-container w3-half">
                     <label for="birth_day"><b>Date of Birth</b></label><br>

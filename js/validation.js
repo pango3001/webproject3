@@ -212,10 +212,28 @@ function validZP(){
         document.getElementById('ZPerror').innerText="Zip code is required.";
         document.getElementById('ZPerror').style.color = "red";
     }
+    else if(isZip(zip)){
+        document.getElementById('zipcode').style.borderColor = "green";
+        document.getElementById('ZPerror').innerText="Valid input";
+        document.getElementById('ZPerror').style.color = "green";
+    }
+    else if(!(isdigit(zip))){
+        document.getElementById('zipcode').style.borderColor = "red";
+        document.getElementById('ZPerror').innerText="Zip code must be numeric.";
+        document.getElementById('ZPerror').style.color = "red";
+    }
     else if(!(zip.length == 5 || zip.length == 9)){
         document.getElementById('zipcode').style.borderColor = "red";
         document.getElementById('ZPerror').innerText="Zip code must be 5 or 9 digits";
         document.getElementById('ZPerror').style.color = "red";
+    }
+    else if(zip.length == 9){
+        var zipNum = document.getElementById('zipcode');
+        var format = zip.substr(0, 5) + '-' + zip.substr(5, 4);
+        zipNum.value = format;
+        document.getElementById('zipcode').style.borderColor = "green";
+        document.getElementById('ZPerror').innerText="Valid input";
+        document.getElementById('ZPerror').style.color = "green";
     }
     else{
         document.getElementById('zipcode').style.borderColor = "green";
@@ -229,16 +247,27 @@ function validPN(){
     if(phone.length == ""){
         document.getElementById('phonenumber').style.borderColor = "red";
         document.getElementById('PNerror').innerText="Phone number is required.";
+        document.getElementById('PNerror').style.color = "red";
+    }
+    else if(isPhone(phone)){
+        document.getElementById('phonenumber').style.borderColor = "green";
+        document.getElementById('PNerror').innerText="Valid input";
+        document.getElementById('PNerror').style.color = "green";
     }
     else if(!(phone.length == 10)){
         document.getElementById('phonenumber').style.borderColor = "red";
         document.getElementById('PNerror').innerText="Phone number must be 10 digits.";
+        document.getElementById('PNerror').style.color = "red";
     }
     else if(!(isdigit(phone))){
         document.getElementById('phonenumber').style.borderColor = "red";
         document.getElementById('PNerror').innerText="Phone number must be numeric.";
+        document.getElementById('PNerror').style.color = "red";
     }
     else{
+        var phoneNum = document.getElementById('phonenumber');
+        var formatted = phone.substr(0, 3) + '-' + phone.substr(3, 3) + '-' + phone.substr(6,4);
+        phoneNum.value = formatted;
         document.getElementById('phonenumber').style.borderColor = "green";
         document.getElementById('PNerror').innerText="Valid input";
         document.getElementById('PNerror').style.color = "green";
@@ -258,6 +287,14 @@ function validGN(){
         document.getElementById('Gnerror').innerText="Valid input";
         document.getElementById('GNerror').style.borderColor = "red";
     }
+}
+
+function isZip(zip){
+    return /^\d{5}-\d{4}$/.test(zip);
+}
+
+function isPhone(phone){
+    return /^[2-9]\d{2}-\d{3}-\d{4}$/.test(phone);
 }
 
 function regexPW(password) {
