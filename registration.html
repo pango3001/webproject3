@@ -143,6 +143,8 @@
                     <input id="phonenumber" type="text" placeholder="(314) 555-1234" name="phone_number" required>
                     <br><em id="PNerror" class="err">&nbsp</em>
                 </div>
+                <!--
+                *********** OLD RADIO Buttons not used in this project************
                 <div class="w3-container w3-half">
                     <b>Gender</b><br>
                     <input type="radio" name="gender" id="maleGender" value="male" onchange="validGN()"/> <label for="maleGender">Male</label><br/>
@@ -156,12 +158,23 @@
                     <input type="radio" name="marital_status" id="married" value="married"/> <label for="married">Married</label><br/>
                     <input type="radio" name="marital_status" id="divorced" value="divorced"/> <label for="divorced">Divorced</label>
                     <br><em id="MSerror" class="err" onblur="validMS()">&nbsp</em>
+                </div>   -->
+                <div class="w3-container w3-half">
+                    <label for="gender"><b>Gender</b></label><br>
+                    <input id="gender" type="text" name="gender" required>
+                    <br><em id="GNerror" class="err">&nbsp</em>
+                </div>
+                <div class="w3-container w3-half">
+                    <label for="marital_status"><b>Marital Status</b></label><br>
+                    <input id="marital_status" type="text" name="marital_status"/>
+                    <br><em id="MSerror" class="err">&nbsp</em>
                 </div>
                 <div class="w3-container w3-half">
                     <label for="birth_day"><b>Date of Birth</b></label><br>
                     <input id="birth_day" type="date" name="birth_day"/>
                     <br><em id="BDerror" class="err">&nbsp</em>
                 </div>
+
                 <div class="w3-container w3-half"><br>
                     <input type="submit" value="Submit">
                     <input type="reset" value="Reset Data"/>

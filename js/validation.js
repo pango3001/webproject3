@@ -11,6 +11,8 @@ function registerHandlers(){
     document.getElementById("city").onblur=validCT;
     document.getElementById("zipcode").onblur=validZP;
     document.getElementById("phonenumber").onblur=validPN;
+    document.getElementById("gender").onblur=validGN;
+    document.getElementById("marital_status").onblur=validMS;
     document.getElementById("birth_day").onblur=validBD;
 }
 
@@ -275,17 +277,40 @@ function validPN(){
 }
 
 function validGN(){
-    var male = document.getElementById('maleGender').value;
-    var female = document.getElementById('femaleGender').value;
-    var other = document.getElementById('otherGender').value;
-
-    if(male || female || other){
-        document.getElementById('Gnerror').innerText="Valid input";
-        document.getElementById('GNerror').style.color = "green";
+    var gender = document.getElementById('gender').value;
+    if(gender == ""){
+        document.getElementById('gender').style.borderColor = "red";
+        document.getElementById('GNerror').innerText="Gender is required.";
+        document.getElementById('GNerror').style.color = "red";
+    }
+    else if(firstname.length > 50){
+        document.getElementById('gender').style.borderColor = "red";
+        document.getElementById('GNerror').innerText="Gender cannot exceed 50 characters.";
+        document.getElementById('GNerror').style.color = "red";
     }
     else{
-        document.getElementById('Gnerror').innerText="Valid input";
-        document.getElementById('GNerror').style.borderColor = "red";
+        document.getElementById('gender').style.borderColor = "green";
+        document.getElementById('GNerror').innerText="Valid input";
+        document.getElementById('GNerror').style.color = "green";
+    }
+}
+
+function validMS(){
+    var mar = document.getElementById('marital_status').value;
+    if(mar == ""){
+        document.getElementById('marital_status').style.borderColor = "red";
+        document.getElementById('MSerror').innerText="Marital status is required.";
+        document.getElementById('MSerror').style.color = "red";
+    }
+    else if(mar.length > 50){
+        document.getElementById('marital_status').style.borderColor = "red";
+        document.getElementById('MSerror').innerText="Marital status cannot exceed 50 characters.";
+        document.getElementById('MSerror').style.color = "red";
+    }
+    else{
+        document.getElementById('marital_status').style.borderColor = "green";
+        document.getElementById('MSerror').innerText="Valid input";
+        document.getElementById('MSerror').style.color = "green";
     }
 }
 
